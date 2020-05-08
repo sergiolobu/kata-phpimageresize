@@ -1,8 +1,7 @@
 <?php
-
-require 'ImagePath.php';
-require 'Configuration.php';
-require 'Resizer.php';
+use PHPImageResize\ImagePath;
+use PHPImageResize\Configuration;
+use PHPImageResize\Resizer;
 
 function sanitize($path) {
 	return urldecode($path);

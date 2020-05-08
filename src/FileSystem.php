@@ -1,5 +1,7 @@
 <?php
 
+namespace PHPImageResize;
+
 class FileSystem {
 
     public function file_exists($filename) {

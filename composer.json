@@ -1,0 +1,16 @@
+{
+  "autoload": {
+    "psr-4": {"PHPImageResize\\" : "src/"}
+  },
+
+  "autoload-dev": {
+    "psr-4": {"Test\\PHPImageResize\\" : "test/"}
+  },
+
+  "require": {
+    
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.1"
+  }
+}

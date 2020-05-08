@@ -1,6 +1,6 @@
 <?php
 
-require 'FileSystem.php';
+namespace PHPImageResize;
 
 class Resizer {
 
@@ -38,7 +38,7 @@ class Resizer {
         if(!$this->fileSystem->file_exists($imagePath)):
             $imagePath = $_SERVER['DOCUMENT_ROOT'].$imagePath;
             if(!$this->fileSystem->file_exists($imagePath)):
-                throw new RuntimeException();
+                throw new \RuntimeException();
             endif;
         endif;
 
@@ -64,11 +64,11 @@ class Resizer {
     }
 
     private function checkPath($path) {
-        if (!($path instanceof ImagePath)) throw new InvalidArgumentException();
+        if (!($path instanceof ImagePath)) throw new \InvalidArgumentException();
     }
 
     private function checkConfiguration($configuration) {
-        if (!($configuration instanceof Configuration)) throw new InvalidArgumentException();
+        if (!($configuration instanceof Configuration)) throw new \InvalidArgumentException();
     }
 
 }

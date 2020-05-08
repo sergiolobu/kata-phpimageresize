@@ -1,30 +1,32 @@
 <?php
 
-require_once 'Resizer.php';
-require_once 'ImagePath.php';
-require_once 'Configuration.php';
+namespace Test\PHPImageResize;
+
+use PHPImageResize\Resizer;
+use PHPImageResize\ImagePath;
+use PHPImageResize\Configuration;
+
 date_default_timezone_set('Europe/Berlin');
 
-
-class ResizerTest extends PHPUnit_Framework_TestCase {
+class ResizerTest extends \PHPUnit_Framework_TestCase {
 
     /**
-     * @expectedException InvalidArgumentException
+     * @expectedException  \InvalidArgumentException
      */
     public function testNecessaryCollaboration() {
         $resizer = new Resizer('anyNonPathObject');
     }
 
     /**
-     * @expectedException InvalidArgumentException
+     * @expectedException \InvalidArgumentException
      */
     public function testOptionalCollaboration() {
         $resizer = new Resizer(new ImagePath(''), 'nonConfigurationObject');
     }
 
     public function testInstantiation() {
-        $this->assertInstanceOf('Resizer', new Resizer(new ImagePath(''), new Configuration()));
-        $this->assertInstanceOf('Resizer', new Resizer(new ImagePath('')));
+        $this->assertInstanceOf('PHPImageResize\Resizer', new Resizer(new ImagePath(''), new Configuration()));
+        $this->assertInstanceOf('PHPImageResize\Resizer', new Resizer(new ImagePath('')));
     }
 
     public function testObtainLocallyCachedFilePath() {
@@ -32,7 +34,7 @@ class ResizerTest extends PHPUnit_Framework_TestCase {
         $imagePath = new ImagePath('http://martinfowler.com/mf.jpg?query=hello&s=fowler');
         $resizer = new Resizer($imagePath, $configuration);
 
-        $stub = $this->getMockBuilder('FileSystem')
+        $stub = $this->getMockBuilder('PHPImageResize\FileSystem')
             ->getMock();
         $stub->method('file_get_contents')
             ->willReturn('foo');
@@ -51,7 +53,7 @@ class ResizerTest extends PHPUnit_Framework_TestCase {
         $imagePath = new ImagePath('http://martinfowler.com/mf.jpg?query=hello&s=fowler');
         $resizer = new Resizer($imagePath, $configuration);
 
-        $stub = $this->getMockBuilder('FileSystem')
+        $stub = $this->getMockBuilder('PHPImageResize\FileSystem')
             ->getMock();
         $stub->method('file_exists')
             ->willReturn(true);

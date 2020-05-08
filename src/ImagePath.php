@@ -1,5 +1,7 @@
 <?php
 
+namespace PHPImageResize;
+
 class ImagePath {
 
     private $path;

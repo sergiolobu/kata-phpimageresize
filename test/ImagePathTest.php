@@ -1,7 +1,10 @@
 <?php
-require_once 'ImagePath.php';
 
-class ImagePathTest extends PHPUnit_Framework_TestCase {
+namespace Test\PHPImageResize;
+
+use PHPImageResize\ImagePath;
+
+class ImagePathTest extends \PHPUnit_Framework_TestCase {
 
     public function testIsSanitizedAtInstantiation() {
         $url = 'https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#safe=off&q=php%20define%20dictionary';

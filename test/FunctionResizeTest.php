@@ -1,8 +1,10 @@
 <?php
 
-include 'Configuration.php';
+namespace Test\PHPImageResize;
 
-class FunctionResizeTest extends PHPUnit_Framework_TestCase {
+use PHPImageResize\Configuration;
+
+class FunctionResizeTest extends \PHPUnit_Framework_TestCase {
 
     private $defaults = array(
         'crop' => false,
@@ -21,7 +23,7 @@ class FunctionResizeTest extends PHPUnit_Framework_TestCase {
 
     public function testOpts()
     {
-        $this->assertInstanceOf('Configuration', new Configuration);
+        $this->assertInstanceOf('PHPImageResize\Configuration', new Configuration);
     }
 
     public function testNullOptsDefaults() {
@@ -69,5 +71,3 @@ class FunctionResizeTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('convert', $configuration->obtainConvertPath());
     }
 }
-
-?>
